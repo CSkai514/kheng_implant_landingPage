@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KHENG DENTAL CLINIC - Dental Implant Solution</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FAF7F2',
+              sand: '#EDE6DD',
+              taupe: '#DCD6CB',
+              navy: '#0C1C2E',
+              gold: '#C89B53',
+              goldDark: '#A67C33',
+              cardBg: '#FAF7F2',
+              dark: '#08090C'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF7F2;
+      color: #0C1C2E;
+      overflow-x: hidden;
+    }
+
+    /* Section 3 Tilted Dental Operatory Suite Frame overlapping into Section 4 */
+    @media (min-width: 1024px) {
+      .clinic-tilt-frame {
+        transform: rotate(8.5deg);
+        transform-origin: center center;
+        margin-bottom: -130px;
+        z-index: 30;
+      }
+    }
+
+    /* Natural bottom-left patient portrait blending */
+    .patient-bottom-blend {
+      -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%), linear-gradient(to right, black 80%, transparent 100%);
+      mask-image: linear-gradient(to top, black 80%, transparent 100%), linear-gradient(to right, black 80%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-cream text-brand-navy antialiased selection:bg-brand-navy selection:text-white">
+
+  <header class="sticky top-0 z-50 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-[#E3DACD] py-3.5 px-4 sm:px-6 lg:px-12 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo identical to flyer -->
+      <a href="#hero" class="flex items-center gap-2.5">
+        <div class="flex items-center space-x-1">
+          <span class="w-6 h-6 sm:w-7 sm:h-7 bg-[#8C95A0] text-white text-xs sm:text-sm font-bold flex items-center justify-center rounded shadow-sm">K</span>
+          <span class="w-6 h-6 sm:w-7 sm:h-7 bg-[#8C95A0] text-white text-xs sm:text-sm font-bold flex items-center justify-center rounded shadow-sm">H</span>
+          <span class="w-6 h-6 sm:w-7 sm:h-7 bg-[#8C95A0] text-white text-xs sm:text-sm font-bold flex items-center justify-center rounded shadow-sm">E</span>
+          <span class="w-6 h-6 sm:w-7 sm:h-7 bg-[#8C95A0] text-white text-xs sm:text-sm font-bold flex items-center justify-center rounded shadow-sm">N</span>
+          <span class="w-6 h-6 sm:w-7 sm:h-7 bg-[#8C95A0] text-white text-xs sm:text-sm font-bold flex items-center justify-center rounded shadow-sm">G</span>
+        </div>
+        <div class="leading-none border-l border-gray-400 pl-2.5 hidden sm:block">
+          <p class="text-[11px] font-black tracking-widest text-brand-navy">DENTAL CLINIC</p>
+          <p class="text-[9px] font-bold text-gray-500 mt-0.5">龚氏牙医</p>
+        </div>
+      </a>
+
+      <!-- Actions: Back to Main Site & Direct Call / Consultation -->
+      <div class="flex items-center gap-3 sm:gap-6">
+        <a href="https://khengdental.com" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-navy hover:text-amber-800 px-3.5 py-1.5 rounded-full hover:bg-black/5 transition-colors border border-transparent hover:border-black/5">
+          <i class="fa-solid fa-arrow-left text-[11px]"></i>
+          <span>Back to Main Site</span>
+        </a>
+
+        <a href="tel:+601126241182" class="hidden md:inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-navy hover:underline">
+          <i class="fa-solid fa-phone text-xs"></i>
+          <span>+6011-2624 1182</span>
+        </a>
+
+        <button onclick="openBookingModal()" class="bg-brand-navy hover:bg-slate-900 text-white text-xs font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+          <span>Book Consultation</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ========================================================
+       SECTION 1: HERO
+       - Full-bleed background photo covering the entire area behind title and card
+       - Smiling patient and modern clinic backdrop
+       - Left: Clinic brand and headline
+       - Right: Floating RM 5,000 All-Inclusive Price card
+  ======================================================== -->
+  <section id="hero" class="relative w-full bg-brand-sand min-h-[660px] lg:min-h-[740px] flex items-center overflow-hidden border-b border-[#DDD3C4]">
+    
+    <!-- FULL-BLEED BACKGROUND IMAGE: Covers Title & Card entirely -->
+    <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+      <!-- High-res smiling patient in bright clinic room -->
+      <img 
+        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&w=2200&q=85" 
+        alt="Smiling Mature Patient in Dental Clinic" 
+        class="w-full h-full object-cover object-[62%_18%] sm:object-[60%_20%] lg:object-[55%_22%]"
+        onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2200&q=85'"
+      />
+      
+      <!-- Multi-stop directional gradient scrims: keeps photo visible while guaranteeing crisp text & card readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#EDE6DD] via-[#EDE6DD]/75 via-45% to-[#EDE6DD]/85 lg:from-[#EDE6DD]/95 lg:via-[#EDE6DD]/30 lg:via-50% lg:to-[#EDE6DD]/75 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#EDE6DD] via-transparent to-transparent opacity-60 pointer-events-none"></div>
+    </div>
+
+    <!-- Foreground Content Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full py-12 sm:py-16 lg:py-20 relative z-10">
+      
+      <!-- Clinic Brand Header on Top-Left identical to flyer -->
+      <div class="flex items-center gap-2 mb-8 sm:mb-12">
+        <div class="flex items-center space-x-1">
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">K</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">H</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">E</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">N</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">G</span>
+        </div>
+        <div class="leading-none ml-1">
+          <p class="text-[11px] font-black tracking-widest text-[#232F3D] uppercase">DENTAL CLINIC</p>
+          <p class="text-[9px] font-bold text-[#556372] mt-0.5">龚氏牙医</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- LEFT: Headline & Description Copy from Flyer -->
+        <div class="lg:col-span-7 space-y-5 max-w-xl">
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-[56px] font-bold text-brand-navy leading-[1.12] tracking-tight">
+            Replace Your<br>
+            Missing Tooth<br>
+            With Confidence.
+          </h1>
+          <p class="text-base sm:text-lg text-gray-800 leading-relaxed font-normal max-w-md pt-1">
+            A complete dental implant solution designed to restore your smile, comfort and confidence.
+          </p>
+        </div>
+
+        <!-- RIGHT: Floating RM 5,000 All-Inclusive Price Card (Overlaid on Background) -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="w-full max-w-[340px] sm:max-w-[360px] bg-[#FAF7F2]/95 backdrop-blur-md rounded-[2.5rem] p-7 shadow-[0_25px_50px_-12px_rgba(12,28,46,0.22)] border border-white/80">
+            
+            <!-- Price Heading -->
+            <div class="text-center pb-2">
+              <h2 class="font-serif text-3xl sm:text-[40px] font-black text-brand-navy tracking-tight leading-none">
+                RM 5,000
+              </h2>
+              <div class="mt-3 inline-block bg-brand-navy text-white text-[10.5px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-sm">
+                ALL-INCLUSIVE PRICE
+              </div>
+            </div>
+
+            <!-- 3 Illustrated Inclusions: Crown, Abutment, Implant -->
+            <div class="py-5 space-y-4 border-b border-gray-200/80 my-2">
+              
+              <!-- 1. Crown -->
+              <div class="flex items-center justify-between px-2">
+                <div class="w-16 h-12 flex items-center justify-center">
+                  <svg viewBox="0 0 64 64" class="w-12 h-12 drop-shadow-md" fill="none">
+                    <defs>
+                      <linearGradient id="heroCrownGrad" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FFFFFF"/>
+                        <stop offset="0.65" stop-color="#F1F5F9"/>
+                        <stop offset="1" stop-color="#CBD5E1"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M16 26C15 16 22 13 28 15C32 16.5 32 16.5 36 15C42 13 49 16 48 26C47 38 43 47 38 49C34 50 30 50 26 49C21 47 17 38 16 26Z" fill="url(#heroCrownGrad)" stroke="#94A3B8" stroke-width="1.6"/>
+                    <path d="M22 20C24 23 27 25 32 25C37 25 40 23 42 20" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
+                    <ellipse cx="32" cy="34" rx="7" ry="11" fill="white" opacity="0.6"/>
+                  </svg>
+                </div>
+                <span class="text-base font-bold text-brand-navy tracking-wide">Crown</span>
+              </div>
+
+              <!-- 2. Abutment -->
+              <div class="flex items-center justify-between px-2">
+                <div class="w-16 h-10 flex items-center justify-center">
+                  <svg viewBox="0 0 64 50" class="w-10 h-10 drop-shadow-md" fill="none">
+                    <defs>
+                      <linearGradient id="heroAbutGrad" x1="18" y1="6" x2="46" y2="44" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#E2E8F0"/>
+                        <stop offset="0.4" stop-color="#94A3B8"/>
+                        <stop offset="1" stop-color="#64748B"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M21 8L43 8L38 27L35 39L29 39L26 27L21 8Z" fill="url(#heroAbutGrad)" stroke="#475569" stroke-width="1.5"/>
+                    <path d="M25 15L39 15" stroke="#CBD5E1" stroke-width="1"/>
+                    <rect x="29" y="39" width="6" height="6" rx="1" fill="#475569"/>
+                  </svg>
+                </div>
+                <span class="text-base font-bold text-brand-navy tracking-wide">Abutment</span>
+              </div>
+
+              <!-- 3. Implant -->
+              <div class="flex items-center justify-between px-2">
+                <div class="w-16 h-16 flex items-center justify-center">
+                  <svg viewBox="0 0 60 74" class="w-10 h-16 drop-shadow-md" fill="none">
+                    <defs>
+                      <linearGradient id="heroScrewGrad" x1="18" y1="5" x2="42" y2="65" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#CBD5E1"/>
+                        <stop offset="0.5" stop-color="#64748B"/>
+                        <stop offset="1" stop-color="#334155"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="22" y="4" width="16" height="6" rx="1.5" fill="#64748B"/>
+                    <path d="M21 10L39 10L37 17L23 17Z" fill="url(#heroScrewGrad)"/>
+                    <path d="M23 17L37 17L36 24L24 24Z" fill="url(#heroScrewGrad)"/>
+                    <path d="M24 24L36 24L34 31L26 31Z" fill="url(#heroScrewGrad)"/>
+                    <path d="M26 31L34 31L33 38L27 38Z" fill="url(#heroScrewGrad)"/>
+                    <path d="M27 38L33 38L31 46L29 46Z" fill="url(#heroScrewGrad)"/>
+                    <path d="M29 46L31 46L30 54L30 54Z" fill="url(#heroScrewGrad)"/>
+                    <line x1="21" y1="12" x2="39" y2="15" stroke="#CBD5E1" stroke-width="1.5"/>
+                    <line x1="23" y1="19" x2="37" y2="22" stroke="#CBD5E1" stroke-width="1.5"/>
+                    <line x1="24" y1="26" x2="36" y2="29" stroke="#CBD5E1" stroke-width="1.5"/>
+                    <line x1="26" y1="33" x2="34" y2="36" stroke="#CBD5E1" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <span class="text-base font-bold text-brand-navy tracking-wide">Implant</span>
+              </div>
+
+            </div>
+
+            <!-- Booking Button inside Card -->
+            <div class="pt-2">
+              <button onclick="openBookingModal()" class="w-full bg-brand-navy hover:bg-slate-900 text-white font-extrabold text-xs tracking-wider py-3.5 px-4 rounded-xl flex items-center justify-between transition-all group shadow-md hover:shadow-lg">
+                <span class="uppercase">BOOK YOUR FREE CONSULTATION</span>
+                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 2: ONE CLEAR PRICE (AVOID HIDDEN CHARGE)
+       - Left: Title, subtitle & decorative pill bars
+       - Right: 3 white cards (01 Zirconia Crown, 02 Abutment, 03 Dental Implant)
+  ======================================================== -->
+  <section class="w-full bg-brand-sand py-16 sm:py-24 border-b border-[#DDD3C4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Title Block with 2 decorative rounded capsule bars -->
+        <div class="lg:col-span-4 space-y-2">
+          <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#B08954]">
+            AVOID HIDDEN CHARGE,
+          </p>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-brand-navy leading-tight">
+            One Clear Price.
+          </h2>
+          <p class="text-sm sm:text-base text-gray-700 font-medium pt-2 leading-relaxed">
+            Everything needed for your perfect smile includes:
+          </p>
+
+          <!-- 2 decorative white capsule bars identical to flyer -->
+          <div class="pt-6 flex flex-col gap-2.5">
+            <div class="w-36 h-4 bg-white/80 rounded-full shadow-sm"></div>
+            <div class="w-52 h-4 bg-white/80 rounded-full shadow-sm"></div>
+          </div>
+        </div>
+
+        <!-- Right: 3 White Component Cards (01, 02, 03) -->
+        <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-5">
+          
+          <!-- 01 Zirconia Crown -->
+          <div class="bg-white rounded-3xl p-6 shadow-sm relative flex flex-col items-center text-center border border-white hover:-translate-y-1.5 transition-transform duration-300">
+            <span class="absolute top-4 left-4 bg-brand-navy text-white text-[11px] font-extrabold px-2 py-0.5 rounded-md">
+              01
+            </span>
+            <div class="h-28 w-full flex items-center justify-center my-3">
+              <svg viewBox="0 0 74 74" class="w-20 h-20 drop-shadow-md" fill="none">
+                <defs>
+                  <linearGradient id="cardCrownGrad" x1="10" y1="10" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFFFFF"/>
+                    <stop offset="0.6" stop-color="#F1F5F9"/>
+                    <stop offset="1" stop-color="#CBD5E1"/>
+                  </linearGradient>
+                </defs>
+                <path d="M19 28C17 17 25 13 33 15C37 17 37 17 41 15C49 13 57 17 55 28C54 42 49 53 43 55C39 56 35 56 31 55C25 53 20 42 19 28Z" fill="url(#cardCrownGrad)" stroke="#94A3B8" stroke-width="1.8"/>
+                <path d="M26 21C28 24 32 26 37 26C42 26 46 24 48 21" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+                <ellipse cx="37" cy="42" rx="10" ry="6" fill="#E2E8F0" opacity="0.6"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-1">
+              Zirconia Crown
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-500 leading-normal">
+              Custom made crown to your comfort
+            </p>
+          </div>
+
+          <!-- 02 Abutment -->
+          <div class="bg-white rounded-3xl p-6 shadow-sm relative flex flex-col items-center text-center border border-white hover:-translate-y-1.5 transition-transform duration-300">
+            <span class="absolute top-4 left-4 bg-brand-navy text-white text-[11px] font-extrabold px-2 py-0.5 rounded-md">
+              02
+            </span>
+            <div class="h-28 w-full flex items-center justify-center my-3">
+              <svg viewBox="0 0 64 64" class="w-16 h-16 drop-shadow-md" fill="none">
+                <defs>
+                  <linearGradient id="cardAbutGrad" x1="18" y1="10" x2="46" y2="50" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#E2E8F0"/>
+                    <stop offset="0.4" stop-color="#94A3B8"/>
+                    <stop offset="1" stop-color="#64748B"/>
+                  </linearGradient>
+                </defs>
+                <path d="M19 12L45 12L40 34L36 48L28 48L24 34L19 12Z" fill="url(#cardAbutGrad)" stroke="#475569" stroke-width="1.8"/>
+                <path d="M23 20L41 20" stroke="#CBD5E1" stroke-width="1.5"/>
+                <path d="M25 29L39 29" stroke="#64748B" stroke-width="1.5"/>
+                <rect x="28" y="48" width="8" height="6" fill="#475569" rx="1"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-1">
+              Abutment
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-500 leading-normal">
+              Connects your crown secure to the implant
+            </p>
+          </div>
+
+          <!-- 03 Dental Implant -->
+          <div class="bg-white rounded-3xl p-6 shadow-sm relative flex flex-col items-center text-center border border-white hover:-translate-y-1.5 transition-transform duration-300">
+            <span class="absolute top-4 left-4 bg-brand-navy text-white text-[11px] font-extrabold px-2 py-0.5 rounded-md">
+              03
+            </span>
+            <div class="h-28 w-full flex items-center justify-center my-3">
+              <svg viewBox="0 0 60 76" class="w-14 h-20 drop-shadow-md" fill="none">
+                <rect x="22" y="6" width="16" height="5" rx="1" fill="#475569"/>
+                <path d="M21 12L39 12L37 19L23 19Z" fill="#64748B" stroke="#334155" stroke-width="1"/>
+                <path d="M23 19L37 19L36 27L24 27Z" fill="#64748B" stroke="#334155" stroke-width="1"/>
+                <path d="M24 27L36 27L34 35L26 35Z" fill="#475569" stroke="#1E293B" stroke-width="1"/>
+                <path d="M26 35L34 35L33 43L27 43Z" fill="#475569" stroke="#1E293B" stroke-width="1"/>
+                <path d="M27 43L33 43L31 52L29 52Z" fill="#334155" stroke="#0F172A" stroke-width="1"/>
+                <line x1="21" y1="15" x2="39" y2="17" stroke="#CBD5E1" stroke-width="1.6"/>
+                <line x1="23" y1="23" x2="37" y2="25" stroke="#CBD5E1" stroke-width="1.6"/>
+                <line x1="24" y1="31" x2="36" y2="33" stroke="#CBD5E1" stroke-width="1.6"/>
+                <line x1="26" y1="39" x2="34" y2="41" stroke="#CBD5E1" stroke-width="1.6"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-1">
+              Dental Implant
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-500 leading-normal">
+              A stable foundation for the missing tooth.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 3: WHY KHENG DENTAL? (DARK MODERN OPERATORY)
+       - Black background
+       - Left: Team copy & 2 Clinical guarantees
+       - Right: Tilted white-bordered operatory card overlapping downward into Section 4
+  ======================================================== -->
+  <section class="w-full bg-brand-dark text-white pt-16 sm:pt-24 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-12 relative z-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Left: Content & Clinical Pillars -->
+        <div class="lg:col-span-6 space-y-6">
+          <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-gold">
+            WHY KHENG DENTAL?
+          </p>
+
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-white leading-tight">
+            Your Smile Deserves<br>
+            Experienced Hands.
+          </h2>
+
+          <p class="text-sm sm:text-base text-gray-300 font-normal">
+            Experience matters when lifetime<br class="hidden sm:inline">
+            investment involved.
+          </p>
+
+          <div class="pt-1">
+            <p class="text-base sm:text-lg font-bold text-amber-300 tracking-wide leading-snug">
+              Large team of experienced<br>
+              Implant Dentists & Implant Specialists
+            </p>
+          </div>
+
+          <!-- 2 Feature Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-gray-800">
+            
+            <!-- Feature 1: Personalised Treatment Planning -->
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl border border-gray-700 bg-white/5 flex items-center justify-center shrink-0">
+                <i class="fa-regular fa-clipboard-check text-brand-gold text-xl"></i>
+              </div>
+              <div class="space-y-1">
+                <h4 class="text-sm sm:text-base font-bold text-white leading-snug">
+                  Personalised<br>Treatment Planning
+                </h4>
+                <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  Your implant treatment is planned around your oral health & individual needs
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2: Long Term Confidence -->
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl border border-gray-700 bg-white/5 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-shield-halved text-brand-gold text-xl"></i>
+              </div>
+              <div class="space-y-1">
+                <h4 class="text-sm sm:text-base font-bold text-white leading-snug">
+                  Long Term<br>Confidence
+                </h4>
+                <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  Enjoy peace of mind with our 10 years warranty
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Modern Operatory Suite Photography in tilted white card overlapping downward -->
+        <div class="lg:col-span-6 flex justify-center items-center">
+          <div class="clinic-tilt-frame relative bg-white p-3 sm:p-4 rounded-[2.8rem] md:rounded-[3.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] max-w-lg w-full border-[6px] border-white transition-all">
+            <img 
+              src="https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto/liqn2fhwem18wuoca09w.jpg" 
+              alt="Kheng Dental Clinic Operatory Suite" 
+              class="w-full h-[320px] sm:h-[420px] object-cover rounded-[2.3rem] md:rounded-[3rem]"
+              onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80'"
+            />
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 4: ENJOY LONG LASTING PEACE OF MIND
+       - Taupe/sand warm background
+       - Left: Smiling Asian female patient grounded at bottom-left
+       - Right: 10 Years Warranty golden laurel medal & Healthcare Asia Awards 2026
+  ======================================================== -->
+  <section class="w-full bg-brand-taupe text-brand-navy pt-20 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-12 relative overflow-hidden z-10 border-b border-[#DDD3C4]">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+        
+        <!-- Left: Smiling Patient Portrait anchored naturally at bottom-left (No circle) -->
+        <div class="lg:col-span-5 flex items-end justify-center lg:justify-start -mb-16 sm:-mb-20">
+          <div class="relative w-full max-w-[380px] sm:max-w-[420px]">
+            <img 
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80" 
+              alt="Smiling Dental Patient" 
+              class="w-full h-auto object-cover object-bottom patient-bottom-blend"
+              onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80'"
+            />
+          </div>
+        </div>
+
+        <!-- Right: Warranty Details & Awards Badges identical to flyer -->
+        <div class="lg:col-span-7 space-y-5 text-center lg:text-left pb-8 sm:pb-12">
+          
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-brand-navy leading-tight">
+            Enjoy Long Lasting<br>
+            Peace of Mind
+          </h2>
+
+          <p class="text-base sm:text-lg text-gray-800 font-medium">
+            Your implant journey doesn't end when treatment completed.
+          </p>
+
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
+            With each year warranty, you can move forward with greater confidence in your investment!
+          </p>
+
+          <!-- Badges Group: 10 Years Warranty Ribbon & Healthcare Asia Awards 2026 -->
+          <div class="pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-8 sm:gap-14">
+            
+            <!-- 10 Years Warranty Golden Laurel Emblem -->
+            <div class="flex flex-col items-center">
+              <div class="relative w-36 h-32 flex items-center justify-center">
+                <svg viewBox="0 0 160 140" class="w-full h-full drop-shadow-md" fill="none">
+                  <defs>
+                    <linearGradient id="goldShineWeb" x1="0" y1="0" x2="160" y2="140" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FFE082"/>
+                      <stop offset="0.3" stop-color="#D4AF37"/>
+                      <stop offset="0.7" stop-color="#AA771C"/>
+                      <stop offset="1" stop-color="#FFDF73"/>
+                    </linearGradient>
+                    <linearGradient id="ribbonGradWeb" x1="0" y1="90" x2="160" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#C59B27"/>
+                      <stop offset="0.5" stop-color="#F3E5AB"/>
+                      <stop offset="1" stop-color="#9A7B1C"/>
+                    </linearGradient>
+                  </defs>
+                  
+                  <!-- Left Laurel Wreath -->
+                  <path d="M40 90C25 75 25 45 42 25M34 80C20 65 24 40 38 30M32 60C22 50 25 35 36 28M44 42C36 32 40 22 50 20" stroke="url(#goldShineWeb)" stroke-width="4.5" stroke-linecap="round"/>
+                  
+                  <!-- Right Laurel Wreath -->
+                  <path d="M120 90C135 75 135 45 118 25M126 80C140 65 136 40 122 30M128 60C138 50 135 35 124 28M116 42C124 32 120 22 110 20" stroke="url(#goldShineWeb)" stroke-width="4.5" stroke-linecap="round"/>
+
+                  <!-- Golden 10 -->
+                  <text x="80" y="76" text-anchor="middle" font-family="'Playfair Display', serif" font-weight="900" font-size="54" fill="url(#goldShineWeb)" letter-spacing="-2">10</text>
+                  
+                  <!-- Banner Ribbon -->
+                  <rect x="16" y="96" width="128" height="28" rx="4" fill="url(#ribbonGradWeb)" stroke="#8A6715" stroke-width="1.5"/>
+                  <text x="80" y="114" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="10" fill="#1E1605" letter-spacing="0.5">YEARS WARRANTY</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Healthcare Asia Awards 2026 Badge -->
+            <div class="flex items-center gap-2 border border-gray-400/60 bg-white/70 backdrop-blur-sm px-4 py-3 rounded-2xl shadow-sm">
+              <svg viewBox="0 0 40 60" class="w-8 h-12 stroke-slate-800" fill="none">
+                <path d="M30 50C15 45 10 25 25 10M25 40C12 35 12 20 22 15" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              
+              <div class="text-center px-1">
+                <p class="text-[11px] font-black uppercase tracking-tight text-red-700 leading-none">
+                  HEALTHCARE<span class="text-slate-900">ASIA</span>
+                </p>
+                <p class="font-serif font-black text-base sm:text-lg tracking-widest text-slate-900 leading-tight">
+                  AWARDS 2026
+                </p>
+                <p class="text-[8.5px] sm:text-[9px] text-gray-700 font-bold leading-tight pt-0.5">
+                  Dental Clinic of the Year - Malaysia
+                </p>
+                <p class="text-[7.5px] sm:text-[8px] text-gray-500 font-medium">
+                  Bloom Healthcare Dental<br>(Central) Sdn. Bhd.
+                </p>
+              </div>
+
+              <svg viewBox="0 0 40 60" class="w-8 h-12 stroke-slate-800" fill="none">
+                <path d="M10 50C25 45 30 25 15 10M15 40C28 35 28 20 18 15" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 5: NOT SURE IF DENTAL IMPLANTS ARE RIGHT FOR YOU?
+       - Left: Consultation invitation
+       - Right: Button on top, Phone and Instagram centered directly beneath
+  ======================================================== -->
+  <section class="w-full bg-white py-16 sm:py-24 border-b border-[#DDD3C4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Question & Description -->
+        <div class="lg:col-span-7 space-y-4">
+          <h3 class="font-serif text-3xl sm:text-4xl lg:text-[40px] font-bold text-brand-navy leading-snug">
+            Not Sure If Dental Implants<br>
+            Are Right For You?
+          </h3>
+          <p class="text-sm sm:text-base text-gray-600 leading-relaxed font-normal max-w-xl">
+            Book a FREE consultation with our experienced dental team to discuss your concerns, assess your dental needs and explore your treatment options.
+          </p>
+        </div>
+
+        <!-- Right: Button on top, Phone and Instagram beneath -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center space-y-6">
+          
+          <!-- Consultation CTA Button with Arrow -->
+          <button onclick="openBookingModal()" class="w-full bg-brand-navy hover:bg-slate-900 text-white font-black text-xs sm:text-sm tracking-wider py-4 sm:py-5 px-6 rounded-2xl flex items-center justify-between transition-all shadow-xl group">
+            <span class="text-left leading-tight">BOOK YOUR FREE<br>CONSULTATION</span>
+            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+              <i class="fa-solid fa-arrow-right text-lg"></i>
+            </div>
+          </button>
+
+          <!-- Contact Channels -->
+          <div class="space-y-4 pt-1 w-full flex flex-col items-start sm:items-center">
+            
+            <!-- Phone / WhatsApp -->
+            <a href="tel:+601126241182" class="flex items-center gap-4 group text-gray-800 hover:text-brand-navy transition-colors">
+              <div class="w-12 h-12 rounded-full bg-brand-navy text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="text-left leading-tight">
+                <p class="text-[11px] text-gray-500 font-bold uppercase tracking-wider">Contact Us On</p>
+                <p class="text-base sm:text-lg font-black text-brand-navy tracking-wide">+6011-2624 1182</p>
+              </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/klinikpergigiankheng" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group text-gray-800 hover:text-brand-navy transition-colors">
+              <div class="w-12 h-12 rounded-full bg-brand-navy text-white flex items-center justify-center shrink-0 text-lg shadow-sm group-hover:scale-105 transition-transform">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="text-left leading-tight">
+                <p class="text-[11px] text-gray-500 font-bold uppercase tracking-wider">Instagram</p>
+                <p class="text-base sm:text-lg font-black text-brand-navy tracking-wide">@klinikpergigiankheng</p>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       WEBSITE FOOTER (SIMPLIFIED & MINIMAL)
+  ======================================================== -->
+  <footer class="w-full bg-[#0C1C2E] text-white py-10 px-4 sm:px-6 lg:px-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand Logo identical to flyer -->
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center space-x-1">
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">K</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">H</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">E</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">N</span>
+          <span class="w-6 h-6 bg-[#8C95A0] text-white text-xs font-bold flex items-center justify-center rounded">G</span>
+        </div>
+        <div class="leading-none border-l border-slate-600 pl-2.5">
+          <p class="text-[11px] font-black tracking-widest text-slate-200 uppercase">DENTAL CLINIC</p>
+          <p class="text-[9px] font-bold text-slate-400 mt-0.5">龚氏牙医</p>
+        </div>
+      </div>
+
+      <!-- Simple Nav & Channels -->
+      <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs font-semibold text-slate-300">
+        <a href="https://khengdental.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-left text-[10px]"></i>
+          <span>Main Site</span>
+        </a>
+        <a href="tel:+601126241182" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-[10px]"></i>
+          <span>+6011-2624 1182</span>
+        </a>
+        <a href="https://instagram.com/klinikpergigiankheng" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <i class="fa-brands fa-instagram text-xs"></i>
+          <span>@klinikpergigiankheng</span>
+        </a>
+      </div>
+
+      <!-- Simple Copyright Note -->
+      <p class="text-xs text-slate-400 text-center md:text-right">
+        &copy; 2026 KHENG DENTAL CLINIC (龚氏牙医). All rights reserved.
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================
+       INTERACTIVE CONSULTATION BOOKING MODAL
+  ======================================================== -->
+  <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-gray-100 transform scale-95 transition-all duration-300 relative" id="modalBox">
+      
+      <!-- Close Button -->
+      <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-left mb-6">
+        <span class="inline-block bg-brand-navy text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+          RM 5,000 All-Inclusive Solution
+        </span>
+        <h3 class="font-serif text-2xl font-bold text-brand-navy">
+          Book Your FREE Consultation
+        </h3>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">
+          Meet our experienced Implant Dentists & Implant Specialists to discuss your oral health needs.
+        </p>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="consultationForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Full Name</label>
+          <input type="text" required placeholder="e.g. Tan Wei Ming" class="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-navy">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number (WhatsApp)</label>
+          <input type="tel" required placeholder="e.g. +60 11-2624 1182" class="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-navy">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Preferred Date</label>
+            <input type="date" required class="w-full text-xs sm:text-sm px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-navy">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Preferred Time</label>
+            <select class="w-full text-xs sm:text-sm px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-navy">
+              <option>Morning (9AM – 12PM)</option>
+              <option>Afternoon (12PM – 3PM)</option>
+              <option>Evening (3PM – 6PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Dental Concerns (Optional)</label>
+          <textarea rows="2" placeholder="e.g. Single missing tooth, chewing discomfort..." class="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-navy resize-none"></textarea>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-brand-navy hover:bg-slate-900 text-white font-bold text-xs sm:text-sm py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+            <span>CONFIRM FREE CONSULTATION</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Confirmation Screen -->
+      <div id="bookingConfirmation" class="hidden text-center py-6 space-y-4">
+        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h4 class="font-serif text-xl font-bold text-brand-navy">Consultation Request Received!</h4>
+        <p class="text-xs sm:text-sm text-gray-600 max-w-sm mx-auto leading-relaxed">
+          Our clinic team will contact you via WhatsApp at <span class="font-bold text-brand-navy">+6011-2624 1182</span> to confirm your preferred consultation slot.
+        </p>
+        <button onclick="closeBookingModal()" class="text-xs sm:text-sm font-bold text-brand-navy underline mt-3">
+          Done
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+    const modal = document.getElementById('bookingModal');
+    const modalBox = document.getElementById('modalBox');
+    const bookingForm = document.getElementById('consultationForm');
+    const bookingConfirmation = document.getElementById('bookingConfirmation');
+
+    function openBookingModal() {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100', 'pointer-events-auto');
+      modalBox.classList.remove('scale-95');
+      modalBox.classList.add('scale-100');
+      bookingForm.classList.remove('hidden');
+      bookingConfirmation.classList.add('hidden');
+    }
+
+    function closeBookingModal() {
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalBox.classList.remove('scale-100');
+      modalBox.classList.add('scale-95');
+    }
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeBookingModal();
+      }
+    });
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      bookingForm.classList.add('hidden');
+      bookingConfirmation.classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
